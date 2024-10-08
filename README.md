@@ -64,6 +64,13 @@ python3 main.py
 
 You can monitor a directory for file changes, and RansomKill will stop any process that appears suspicious based on the modification activity.
 
+## ScriptDetails
+
+1. `main.py` - main script that welcomes ans asks for a directory to monitor and options to change monitor threshold and time window.
+2. `monitor.py` - it works with the Watchdog API and monitors the directory, it also keeps updating the detector about the files modified.
+3. `detector.py` - it contains the detection logic, that keeps track of the number of files modified in a specific given time windows, and if it exceeds the threshold, then it trigger the process-killer.
+4. `process-killer.py` - it makes use of the psutil library and checks for every process running and if it is one of the files_modified, then it immediately terminates it. 
+
 ## Contributions
 
 Contributions, issues, and feature requests are welcome! Feel free to check out the [issues page](https://github.com/your-username/RansomKill/issues) for open issues or to contribute to the project.
